@@ -1,6 +1,6 @@
 # **Docker Case Study**
 
-## **Problem** - Automate Infra allocation for Learning and Development
+## **Problem** - Automate Infra Allocation for Learning and Development
 
 ### **Requirements:**
 - Dynamic Allocation of Linux systems for users
@@ -15,7 +15,7 @@ All the above requirements are same as mentioned in slides.
 
 ## Create the container image
 1. Create a new container from a base image of your choice.
-  `docker create -it --name test_docker ubuntu /bin/bash `
+  `docker create -it --name docker_trial ubuntu /bin/bash `
 
 2. Start and attach to container.
     ```
@@ -23,7 +23,7 @@ All the above requirements are same as mentioned in slides.
     docker attach docker_trial
     ```
 
-3. Install packages required for the students. (e.g. vim, gcc )
+3. Install packages required for the students. (e.g. vim, nano, gcc )
     ```
     apt update
     apt install vim
@@ -58,7 +58,7 @@ Training container image is ready now.
             docker create -it --name $user docker_trial_image /bin/bash
           done < $file
         ```
-2.  Run the shell script `create_userContainers.sh` and fill the entries in `users.txt`. This creates a docker container corresponding to each username from `user.txt`.
+2.  Run the shell script `create_userContainers.sh` and fill the entries in `users.txt`. This creates a docker container corresponding to each username from `users.txt`.
 3.  The user can then use the allocated container using `userContainer.sh` script.
     - `userContainer.sh`
         ```sh
@@ -107,9 +107,9 @@ Training container image is ready now.
             done        
         fi
         ```
-- This gives two options i.e. to either delete all users containers at once or delete a specific user/users by name.
+- This gives two options i.e. to either delete all users containers at once or delete some specific user/users by name.
 
-## Ensuring that the users cannot access others users' containers:
+## Ensuring that the users cannot access other users' containers:
 
 Add the following lines to every user's .bashrc
 ```
@@ -123,7 +123,7 @@ When the user connects to the system, the user will directly connect to the dock
 ```
 sh <shell script>
 ```
-or  
+or
 ```
 bash <shell script>
 ```
